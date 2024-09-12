@@ -61,28 +61,31 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.black : Colors.white,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={{backgroundColor: '#5081FF'}}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        backgroundColor="#5081FF"
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}
+        style={{backgroundColor: '#5081FF'}}
         contentContainerStyle = {{ height: '100%'}}
         >
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Image source = {images.Logo}
+          style={{backgroundColor: '#5081FF'}}>
+          <Image source = {images.TransparentWhiteLogo}
             resizeMode='contain'
-            style={{width: 300, height: 300, margin: 'auto'}}
+            style={{width: 300, height: 300, marginTop: 50, margin: 'auto'}}
             />
+            <View style={{marginTop: 120}}>
+              <Text style={{fontSize:20, color:Colors.white, fontFamily:"Inter_28pt-Light", textAlign: "center"}}>
+              Press anywhere to start
+              </Text>
+            </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -106,6 +109,9 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  backgroundColor: {
+    color: '#5081FF',
+  }
 });
 
 export default App;
